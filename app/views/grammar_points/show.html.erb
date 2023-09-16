@@ -141,13 +141,15 @@
 
   <br><br>
   
-  <div>
-    <%= link_to 'Edit this grammar_point', edit_grammar_point_path(@grammar_point), class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <div class="inline-block ml-2">
-      <%= button_to 'Destroy this grammar_point', grammar_point_path(@grammar_point), method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium", data: {turbo_confirm: "Are you sure you want to delete this grammar point?"} %>
+  <% if user_signed_in? && current_user.admin? %>
+    <div>
+      <%= link_to 'Edit this grammar_point', edit_grammar_point_path(@grammar_point), class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+      <div class="inline-block ml-2">
+        <%= button_to 'Destroy this grammar_point', grammar_point_path(@grammar_point), method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium", data: {turbo_confirm: "Are you sure you want to delete this grammar point?"} %>
+      </div>
+      <%= link_to 'Back to grammar_points', grammar_points_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
     </div>
-    <%= link_to 'Back to grammar_points', grammar_points_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-  </div>
+  <% end %>
 </div>
 
 

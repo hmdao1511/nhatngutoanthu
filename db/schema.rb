@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_13_073831) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_16_160857) do
   create_table "grammar_points", force: :cascade do |t|
     t.string "grammar_point_japanese"
     t.string "grammar_point_brief_translation"
@@ -37,6 +37,19 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_13_073831) do
     t.string "resources_urls"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer "role", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
 end
