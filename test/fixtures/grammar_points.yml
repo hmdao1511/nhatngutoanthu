@@ -1,0 +1,51 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  grammar_point_japanese: MyString
+  grammar_point_brief_translation: MyString
+  jlpt_level: MyString
+  highlight_example: MyString
+  highlight_example_translation: MyString
+  caution_text: MyText
+  caution_examples: MyText
+  structure_text: MyText
+  about_grammar: MyText
+  about_grammar_example_one: MyString
+  about_grammar_example_one_translation: MyString
+  about_grammar_example_two: MyString
+  about_grammar_example_two_translation: MyString
+  about_grammar_example_three: MyString
+  about_grammar_example_three_translation: MyString
+  bonus_example_one: MyString
+  bonus_example_one_translation: MyString
+  bonus_example_two: MyString
+  bonus_example_two_translation: MyString
+  bonus_example_three: MyString
+  bonus_example_three_translation: MyString
+  resources_titles: MyString
+  resources_urls: MyString
+
+two:
+  grammar_point_japanese: MyString
+  grammar_point_brief_translation: MyString
+  jlpt_level: MyString
+  highlight_example: MyString
+  highlight_example_translation: MyString
+  caution_text: MyText
+  caution_examples: MyText
+  structure_text: MyText
+  about_grammar: MyText
+  about_grammar_example_one: MyString
+  about_grammar_example_one_translation: MyString
+  about_grammar_example_two: MyString
+  about_grammar_example_two_translation: MyString
+  about_grammar_example_three: MyString
+  about_grammar_example_three_translation: MyString
+  bonus_example_one: MyString
+  bonus_example_one_translation: MyString
+  bonus_example_two: MyString
+  bonus_example_two_translation: MyString
+  bonus_example_three: MyString
+  bonus_example_three_translation: MyString
+  resources_titles: MyString
+  resources_urls: MyString

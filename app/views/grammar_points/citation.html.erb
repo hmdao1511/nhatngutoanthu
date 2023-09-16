@@ -1,0 +1,59 @@
+<div class="relative">
+
+    <% if notice.present? %>
+        <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
+    <% end %>
+
+    <div class="relative pt-36 ml-auto">
+        <div aria-hidden="true" class="absolute inset-0 grid grid-cols-2 -space-x-52 opacity-40 dark:opacity-20">
+            <div class="blur-[106px] h-56 bg-gradient-to-br from-primary to-purple-400 dark:from-blue-700"></div>
+            <div class="blur-[106px] h-32 bg-gradient-to-r from-cyan-400 to-sky-300 dark:to-indigo-600"></div>
+        </div>
+
+        <div class="lg:w-2/3 text-center mx-auto">
+            <h1 class="text-gray-900 dark:text-black font-bold text-5xl md:text-6xl xl:text-7xl break-all">
+                <%= @grammar_point.grammar_point_japanese %>
+            </h1>
+
+            <h2 style="margin-bottom: 0;">
+                <span class="text-primary dark:text-blue-500 text-2xl">
+                    <%= @grammar_point.highlight_example %>
+                </span>
+            </h2>
+
+            <p class="text-black dark:text-black">
+                <%= @grammar_point.highlight_example_translation %>
+            </p>
+        </div>
+    </div>
+    
+    <h2 class="text-center">Trích nguồn</h2>
+
+    <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+        <% begin %>
+            <% all_resources_titles = @grammar_point.resources_titles.split('_') %>
+            <% all_resources_urls = @grammar_point.resources_urls.split(' ') %>
+            <% for i in 0..(all_resources_titles.length - 1) %>
+                <div class="border-2 rounded-lg p-10">
+                    <h3 style="margin-top: 0;">
+                        <%= all_resources_titles[i] %>
+                    </h3>
+
+
+                    <p class="break-all text-violet-400">
+                        <%= link_to all_resources_urls[i], all_resources_urls[i]  %>
+                    </p>
+                </div>
+            <% end %>
+        <% end %>
+    </div>
+
+    <br>
+
+    <div class="grid grid-cols-1 gap-4 md:grid-cols-3">
+        <%= link_to 'Back to top', "#" , class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+        <%= link_to 'More examples', more_examples_path(@grammar_point), class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+        <%= link_to 'Back to grammar explanation page', grammar_point_path(@grammar_point) , class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    </div>
+<div>
+

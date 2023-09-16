@@ -1,0 +1,122 @@
+<div id="<%= dom_id grammar_point %>">
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Grammar point japanese:</strong>
+    <%= grammar_point.grammar_point_japanese %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Grammar point brief translation:</strong>
+    <%= grammar_point.grammar_point_brief_translation %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Jlpt level:</strong>
+    <%= grammar_point.jlpt_level %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Highlight example:</strong>
+    <%= grammar_point.highlight_example %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Highlight example translation:</strong>
+    <%= grammar_point.highlight_example_translation %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Caution text:</strong>
+    <%= grammar_point.caution_text %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Caution examples:</strong>
+    <%= grammar_point.caution_examples %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Structure text:</strong>
+    <%= grammar_point.structure_text %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">About grammar:</strong>
+    <%= grammar_point.about_grammar %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">About grammar example one:</strong>
+    <%= grammar_point.about_grammar_example_one %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">About grammar example one translation:</strong>
+    <%= grammar_point.about_grammar_example_one_translation %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">About grammar example two:</strong>
+    <%= grammar_point.about_grammar_example_two %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">About grammar example two translation:</strong>
+    <%= grammar_point.about_grammar_example_two_translation %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">About grammar example three:</strong>
+    <%= grammar_point.about_grammar_example_three %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">About grammar example three translation:</strong>
+    <%= grammar_point.about_grammar_example_three_translation %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Bonus example one:</strong>
+    <%= grammar_point.bonus_example_one %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Bonus example one translation:</strong>
+    <%= grammar_point.bonus_example_one_translation %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Bonus example two:</strong>
+    <%= grammar_point.bonus_example_two %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Bonus example two translation:</strong>
+    <%= grammar_point.bonus_example_two_translation %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Bonus example three:</strong>
+    <%= grammar_point.bonus_example_three %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Bonus example three translation:</strong>
+    <%= grammar_point.bonus_example_three_translation %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Resources titles:</strong>
+    <%= grammar_point.resources_titles %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Resources urls:</strong>
+    <%= grammar_point.resources_urls %>
+  </p>
+
+  <% if action_name != "show" %>
+    <%= link_to "Show this grammar point", grammar_point, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to 'Edit this grammar point', edit_grammar_point_path(grammar_point), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+    <hr class="mt-6">
+  <% end %>
+</div>

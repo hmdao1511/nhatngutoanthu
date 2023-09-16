@@ -1,0 +1,157 @@
+<div class="relative">
+
+  <% if notice.present? %>
+    <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
+  <% end %>
+
+  <div class="relative pt-36 ml-auto"> 
+
+    <div aria-hidden="true" class="absolute inset-0 grid grid-cols-2 -space-x-52 opacity-40 dark:opacity-20">
+      <div class="blur-[106px] h-56 bg-gradient-to-br from-primary to-purple-400 dark:from-blue-700"></div>
+      <div class="blur-[106px] h-32 bg-gradient-to-r from-cyan-400 to-sky-300 dark:to-indigo-600"></div>
+    </div>
+
+    <div class="lg:w-2/3 text-center mx-auto">
+      <h1 class="text-gray-900 mb-0 dark:text-black font-bold text-5xl md:text-6xl xl:text-7xl break-all">
+        <%= @grammar_point.grammar_point_japanese %>
+      </h1>
+      <p class="text-black dark:text-black">
+        <%= @grammar_point.grammar_point_brief_translation %>
+      </p>  
+      <h2 style="margin-bottom: 0;">
+        <span class="text-primary dark:text-blue-500 text-2xl">
+          <%= @grammar_point.highlight_example %>
+        </span>
+      </h2>
+      <p class="text-black dark:text-black">
+        <%= @grammar_point.highlight_example_translation %>
+      </p>    
+    </div>
+
+    <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+      <div class="border-2 rounded-lg p-10">
+        <h3 style="margin-top: 0;">
+          Cấu trúc ngữ pháp
+        </h3>
+        <p>
+          <%= @grammar_point.structure_text  %>
+        </p>
+      </div>
+
+      <div class="border-2 rounded-lg p-10">
+        <h3 style="margin-top: 0;">
+          Cấp độ ngữ pháp
+        </h3>
+        <p>
+          <%= @grammar_point.jlpt_level  %>
+        </p>
+      </div>
+
+      <div class="border-2 rounded-lg p-10">
+        <h3 style="margin-top: 0;">
+          Giải thích ngữ pháp
+        </h3>
+        <p class="break-words">
+          <%= @grammar_point.about_grammar %>
+        </p>
+
+        <div class="border-2 rounded-lg p-4 mb-4">
+          <h4 class="break-words text-center", style="margin: 0;">
+            <%= @grammar_point.about_grammar_example_one %>
+          </h4>
+          <p class="break-words text-center text-orange-500", style="margin: 0;">
+            <%= @grammar_point.about_grammar_example_one_translation %>
+          </p>
+        </div>
+
+        <div class="border-2 rounded-lg p-4 mb-4">
+          <h4 class="break-words text-center", style="margin: 0;">
+            <%= @grammar_point.about_grammar_example_two %>
+          </h4>
+          <p class="break-words text-center text-orange-500", style="margin: 0;">
+            <%= @grammar_point.about_grammar_example_two_translation %>
+          </p>
+        </div>
+
+        <div class="border-2 rounded-lg p-4 mb-4">
+          <h4 class="break-words text-center", style="margin: 0;">
+            <%= @grammar_point.about_grammar_example_three %>
+          </h4>
+          <p class="break-words text-center text-orange-500", style="margin: 0;">
+            <%= @grammar_point.about_grammar_example_three_translation %>
+          </p>
+        </div>
+
+      </div>
+
+      <% if @grammar_point.caution_text != "" %>
+        <div class="border-2 rounded-lg p-10">
+          <h3 style="margin-top: 0;">
+            Lưu ý
+          </h3>
+          <p>
+            <%= @grammar_point.caution_text %>
+          </p>
+
+          <% if @grammar_point.caution_examples != "" %>
+            
+            <% begin %>
+                <% grammar_caution_array = @grammar_point.caution_examples.split('**') %> 
+                <% for i in 0..(grammar_caution_array.length - 1) %>
+
+                  <% if i.even? %>
+
+                    <div class="border-2 rounded-lg p-4 mb-4">
+                      <h4 class="break-words text-center", style="margin: 0;">
+                        <%= grammar_caution_array[i] %>
+                      </h4>
+
+                      <% translation_and_caution = grammar_caution_array[i + 1].split('`') %>
+                      <p class="break-words text-center", style="margin: 0;">
+                        <%= translation_and_caution[0] %>
+                      </p>
+
+                      <p class="break-words text-center text-violet-400", style="margin: 0;">
+                        <%= translation_and_caution[1] %>
+                      </p>
+                    </div>
+                  <% end %>
+                  
+                <% end %>
+
+              <% end %>
+
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+
+    <%#= render @grammar_point %>
+
+    
+  </div>
+
+  <br>
+
+  <div class="grid grid-cols-1 gap-4 md:grid-cols-3">
+    <%= link_to 'Back to top', '#', class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to 'More Examples', more_examples_path(@grammar_point), class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to 'Citations/Resources', citation_path(@grammar_point), class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+  </div>
+
+  <br><br>
+  
+  <div>
+    <%= link_to 'Edit this grammar_point', edit_grammar_point_path(@grammar_point), class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <div class="inline-block ml-2">
+      <%= button_to 'Destroy this grammar_point', grammar_point_path(@grammar_point), method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium", data: {turbo_confirm: "Are you sure you want to delete this grammar point?"} %>
+    </div>
+    <%= link_to 'Back to grammar_points', grammar_points_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+  </div>
+</div>
+
+
+
+
+
+
