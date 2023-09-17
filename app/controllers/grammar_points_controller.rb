@@ -1,6 +1,6 @@
 class GrammarPointsController < ApplicationController
-  before_action :authenticate_user!, except: %i[index show citation more_examples ]
-  before_action :authorize_admin, only: %i[ edit update destroy ]
+  before_action :authenticate_user!, except: %i[ index show citation more_examples ]
+  before_action :authorize_admin, only: %i[ new edit create update destroy ]
   before_action :set_grammar_point, only: %i[ show edit update destroy citation more_examples ]
 
   # GET /grammar_points or /grammar_points.json
@@ -14,16 +14,11 @@ class GrammarPointsController < ApplicationController
 
   # GET /grammar_points/new
   def new
-    if current_user.admin?
-      @grammar_point = GrammarPoint.new
-    end
+    @grammar_point = GrammarPoint.new
   end
 
   # GET /grammar_points/1/edit
   def edit
-    if current_user.admin?
-
-    end
   end
 
   # POST /grammar_points or /grammar_points.json
